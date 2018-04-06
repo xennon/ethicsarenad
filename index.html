@@ -41,18 +41,58 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+    
+    .star {
+        visibility: hidden;
+    }
+
+    .fadeIn {
+        -webkit-animation: animat_show 0.8s;
+        animation: animat_show 0.8s;
+        visibility: visible !important;
+    }
+
+    @-webkit-keyframes animat_show{
+        0%{opacity:0}
+        100%{opacity:1}
+    }
+     </style>
+   <!-- --------------------------------------------------------------------- -->  
      
+     <script>
+    function showImages(el) {
+        var windowHeight = jQuery( window ).height();
+        $(el).each(function(){
+            var thisPos = $(this).offset().top;
+
+            var topOfWindow = $(window).scrollTop();
+            if (topOfWindow + windowHeight - 200 > thisPos ) {
+                $(this).addClass("fadeIn");
+            }
+        });
+    }
+
+    // if the image in the window of browser when the page is loaded, show that image
+    $(document).ready(function(){
+            showImages('.star');
+    });
+
+    // if the image in the window of browser when scrolling the page, show that image
+    $(window).scroll(function() {
+            showImages('.star');
+    });
+</script>   
      
-   </style>
+   
     
   </head>
   
  <body>
-   
+   <div id="star">
    <div class="parallax3"></div>
   <div style="height:1000px;">
  
-   
+   </div>
    <h1>
      qwertyjgkhgggfdsddzxfcghjkn
      <br>
